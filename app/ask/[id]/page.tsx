@@ -139,7 +139,7 @@ export default function AskPage() {
             className="w-48 h-48 mx-auto mb-6 object-contain"
           />
           <h1 className="text-3xl font-black text-gray-800 mb-3">Link Expired</h1>
-          <p className="text-gray-600 font-medium">This link has expired or doesn't exist anymore 💔</p>
+          <p className="text-gray-600 font-medium">This link has expired or doesn&apos;t exist anymore 💔</p>
         </div>
       </main>
     )
@@ -173,11 +173,11 @@ export default function AskPage() {
           <p className="text-gray-600 text-lg font-medium mb-4">
             {answered === 'yes' 
               ? 'Time to plan that perfect date! 💕✨' 
-              : "You've already responded to this request."}
+              : "You&apos;ve already responded to this request."}
           </p>
           {answered === 'yes' && (
             <div className="mt-6 p-4 bg-gradient-to-r from-pink-50 to-purple-50 rounded-2xl border-2 border-pink-200">
-              <p className="text-pink-700 font-bold">💌 They'll receive an email notification!</p>
+              <p className="text-pink-700 font-bold">💌 They&apos;ll receive an email notification!</p>
             </div>
           )}
         </div>
@@ -226,7 +226,7 @@ export default function AskPage() {
             />
             <div className="gif-fallback hidden absolute inset-0 items-center justify-center text-center p-8 flex-col">
               <div className="text-7xl mb-4 animate-bounce">🐱</div>
-              <p className="text-gray-600 font-semibold">GIF couldn't load</p>
+              <p className="text-gray-600 font-semibold">GIF couldn&apos;t load</p>
               <p className="text-xs text-gray-400 mt-2">Check the URL in console</p>
             </div>
           </div>
