@@ -90,7 +90,7 @@ export async function POST(request: NextRequest) {
 
     try {
       await resend.emails.send({
-        from: 'Cute Date Link <onboarding@resend.dev>',
+        from: 'Cute Date Link <onboarding@kivemind.com>',
         to: linkData.email,
         subject,
         html: emailBody,
