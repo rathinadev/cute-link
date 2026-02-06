@@ -47,7 +47,7 @@ graph TB
     CreateAPI -->|Return URL| Homepage
     Homepage -->|2. Share Link| Recipient[👤 Recipient]
     
-    Recipient -->|3. Visit Link| AskPage[Ask Page<br/>app/ask/[id]/page.tsx]
+    Recipient -->|3. Visit Link| AskPage["Ask Page<br/>app/ask/id/page.tsx"]
     AskPage -->|GET /api/check-link| CheckAPI[Check Link API<br/>app/api/check-link/route.ts]
     CheckAPI -->|Read| Redis
     CheckAPI -->|Return Status| AskPage
@@ -84,8 +84,8 @@ sequenceDiagram
     H-->>U: Show shareable link
 
     U->>Rec: Share link
-    Rec->>AP: Visit /ask/[id]
-    AP->>CA: GET /api/check-link?id=[id]
+    Rec->>AP: Visit /ask/id
+    AP->>CA: GET /api/check-link?id=id
     CA->>R: Fetch link data
     R-->>CA: Return status
     CA-->>AP: Return data
@@ -107,7 +107,7 @@ sequenceDiagram
 flowchart TD
     Start([User visits homepage]) --> EnterInfo[Enter recipient name<br/>+ creator email]
     EnterInfo --> CreateLink[Click 'Create My Link']
-    CreateLink --> LinkGenerated[Link generated:<br/>/ask/[unique-id]]
+    CreateLink --> LinkGenerated["Link generated:<br/>/ask/unique-id"]
     LinkGenerated --> Share[Share link with recipient]
     
     Share --> RecipientVisits[Recipient opens link]
