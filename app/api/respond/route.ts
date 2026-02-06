@@ -49,13 +49,24 @@ export async function POST(request: NextRequest) {
     await redis.set(`link:${id}`, updatedData, { ex: 7 * 24 * 60 * 60 })
 
     // Send email
-    const subject = 'They responded 💌'
+    const subject = linkData.name
+      ? `${linkData.name} responded 💌`
+      : 'They responded 💌'
+
+    const nameLineYes = linkData.name
+      ? `${linkData.name} said <strong style="color: #10b981;">YES</strong> ❤️`
+      : 'They said <strong style="color: #10b981;">YES</strong>!'
+
+    const nameLineNo = linkData.name
+      ? `${linkData.name} said <strong style="color: #ef4444;">NO</strong>.`
+      : 'They said <strong style="color: #ef4444;">NO</strong>.'
+
     const emailBody =
       answer === 'yes'
         ? `<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
             <h2 style="color: #ec4899;">Great news! 🎉</h2>
             <p style="font-size: 16px; line-height: 1.6; color: #333;">
-              They said <strong style="color: #10b981;">YES</strong>! 
+              ${nameLineYes}
             </p>
             <p style="font-size: 16px; line-height: 1.6; color: #333;">
               Time to plan that perfect date! 💕
@@ -67,7 +78,7 @@ export async function POST(request: NextRequest) {
         : `<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
             <h2 style="color: #6366f1;">They responded</h2>
             <p style="font-size: 16px; line-height: 1.6; color: #333;">
-              Unfortunately, they said <strong style="color: #ef4444;">NO</strong>.
+              Unfortunately, ${nameLineNo}
             </p>
             <p style="font-size: 16px; line-height: 1.6; color: #333;">
               Don't worry, there are plenty of fish in the sea! 🌊

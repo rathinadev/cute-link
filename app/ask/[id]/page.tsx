@@ -15,6 +15,7 @@ export default function AskPage() {
   const [answered, setAnswered] = useState<'yes' | 'no' | null>(null)
   const [showConfetti, setShowConfetti] = useState(false)
   const [showQuestion, setShowQuestion] = useState(false)
+  const [creatorName, setCreatorName] = useState<string | null>(null)
 
   const noButtonTexts = [
     'No',
@@ -66,6 +67,12 @@ export default function AskPage() {
         } else {
           setStatus('pending')
           setTimeout(() => setShowQuestion(true), 300)
+        }
+
+        if (typeof data.name === 'string' && data.name.trim().length > 0) {
+          setCreatorName(data.name.trim())
+        } else {
+          setCreatorName(null)
         }
       } catch (error) {
         console.error('Error checking link:', error)
@@ -200,7 +207,9 @@ export default function AskPage() {
             Will you go out on a date with me?
           </h1>
           <p className="text-gray-600 text-lg font-semibold">
-            Someone special wants to know... 👀💕
+            {creatorName
+              ? `Hi ${creatorName}, someone wants to go out with you... 👀💕`
+              : 'Someone special wants to know... 👀💕'}
           </p>
         </div>
 

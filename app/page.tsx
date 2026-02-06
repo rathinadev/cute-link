@@ -2,8 +2,11 @@
 
 import { useState } from 'react'
 
+const DEV_TOGGLE_ENABLED = process.env.NEXT_PUBLIC_DEV_TOGGLE === 'true'
+
 export default function Home() {
   const [email, setEmail] = useState('')
+  const [name, setName] = useState('')
   const [loading, setLoading] = useState(false)
   const [link, setLink] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -23,7 +26,10 @@ export default function Home() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email: devMode ? 'dev@example.com' : email }),
+        body: JSON.stringify({
+          email: devMode ? 'dev@example.com' : email,
+          name,
+        }),
       })
 
       const data = await response.json()
@@ -35,6 +41,7 @@ export default function Home() {
       setLink(data.url)
       setEmail('')
       setShowSuccess(true)
+      setName('')
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong')
     } finally {
@@ -49,8 +56,8 @@ export default function Home() {
       <div className="max-w-md w-full bg-white/90 backdrop-blur-xl rounded-[2rem] shadow-[0_20px_60px_rgba(0,0,0,0.3)] p-8 relative z-10 border-2 border-white/50 animate-slide-in">
         {/* Header */}
         <div className="text-center mb-8">
-            <img
-            src="https://media.giphy.com/media/FTGah7Mx3zn0I/giphy.gif"
+          <img
+            src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif"
             alt="Cute"
             className="w-32 h-32 mx-auto mb-4 object-contain"
           />
@@ -63,19 +70,37 @@ export default function Home() {
         </div>
 
         {/* Dev Mode Toggle */}
-        <div className="mb-6 p-3 bg-gradient-to-r from-yellow-50 to-orange-50 border-2 border-yellow-300 rounded-xl shadow-md">
-          <label className="flex items-center gap-3 cursor-pointer">
-            <input
-              type="checkbox"
-              checked={devMode}
-              onChange={(e) => setDevMode(e.target.checked)}
-              className="w-5 h-5 rounded border-pink-300 text-pink-600 focus:ring-pink-500 cursor-pointer"
-            />
-            <span className="text-sm font-bold text-yellow-900">🔧 Enable Dev Mode (skips emails & DB)</span>
-          </label>
-        </div>
+        {DEV_TOGGLE_ENABLED && (
+          <div className="mb-6 p-3 bg-gradient-to-r from-yellow-50 to-orange-50 border-2 border-yellow-300 rounded-xl shadow-md">
+            <label className="flex items-center gap-3 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={devMode}
+                onChange={(e) => setDevMode(e.target.checked)}
+                className="w-5 h-5 rounded border-pink-300 text-pink-600 focus:ring-pink-500 cursor-pointer"
+              />
+              <span className="text-sm font-bold text-yellow-900">
+                🔧 Enable Dev Mode (skips emails & DB)
+              </span>
+            </label>
+          </div>
+        )}
 
         <form onSubmit={handleSubmit} className="space-y-5">
+          <div>
+            <label htmlFor="name" className="block text-base font-bold text-gray-700 mb-2 flex items-center gap-2">
+              <span className="text-xl">🙋‍♀️</span>
+              <span>Their Name (who you&apos;re asking)</span>
+            </label>
+            <input
+              type="text"
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Nina"
+              className="w-full px-4 py-3 border-2 border-pink-300 rounded-xl focus:ring-4 focus:ring-pink-400 focus:border-pink-500 outline-none transition-all text-base font-medium shadow-inner bg-white mb-3"
+            />
+          </div>
           <div>
             <label htmlFor="email" className="block text-base font-bold text-gray-700 mb-2 flex items-center gap-2">
               <span className="text-xl">📧</span>

@@ -6,7 +6,7 @@ const DEV_MODE = process.env.DEV_MODE === 'true'
 
 export async function POST(request: NextRequest) {
   try {
-    const { email } = await request.json()
+    const { email, name } = await request.json()
 
     // In dev mode, skip email validation
     if (!DEV_MODE) {
@@ -23,6 +23,7 @@ export async function POST(request: NextRequest) {
       email: DEV_MODE ? 'dev@example.com' : email,
       status: 'pending',
       createdAt: Date.now(),
+      name: typeof name === 'string' && name.trim().length > 0 ? name.trim() : undefined,
     }
 
     // In dev mode, skip Redis storage

@@ -17,5 +17,6 @@ export interface LinkData {
   email: string
   status: 'pending' | 'yes' | 'no'
   createdAt: number
+  name?: string
 }
 
