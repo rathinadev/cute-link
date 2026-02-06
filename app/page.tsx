@@ -178,6 +178,9 @@ export default function Home() {
           </div>
         )}
       </div>
+      <div className="absolute bottom-4 inset-x-0 text-center text-sm md:text-base font-semibold text-white/90 drop-shadow-sm tracking-wide">
+        Made with 💕 by ratu
+      </div>
     </main>
   )
 }

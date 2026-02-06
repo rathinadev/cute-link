@@ -284,6 +284,9 @@ export default function AskPage() {
 
         {/* Soft hint without pressure – removed the old 'Keep trying' text */}
       </div>
+      <div className="absolute bottom-4 inset-x-0 text-center text-sm md:text-base font-semibold text-white/90 drop-shadow-sm tracking-wide">
+        Made with 💕 by ratu
+      </div>
     </main>
   )
 }
