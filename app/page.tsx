@@ -49,8 +49,8 @@ export default function Home() {
       <div className="max-w-md w-full bg-white/90 backdrop-blur-xl rounded-[2rem] shadow-[0_20px_60px_rgba(0,0,0,0.3)] p-8 relative z-10 border-2 border-white/50 animate-slide-in">
         {/* Header */}
         <div className="text-center mb-8">
-          <img
-            src="https://media1.tenor.com/m/K2qL1vWvFzAAAAAd/peach-goma-peach-and-goma.gif"
+            <img
+            src="https://media.giphy.com/media/FTGah7Mx3zn0I/giphy.gif"
             alt="Cute"
             className="w-32 h-32 mx-auto mb-4 object-contain"
           />
@@ -71,7 +71,7 @@ export default function Home() {
               onChange={(e) => setDevMode(e.target.checked)}
               className="w-5 h-5 rounded border-pink-300 text-pink-600 focus:ring-pink-500 cursor-pointer"
             />
-            <span className="text-sm font-bold text-yellow-900">🔧 Dev Mode (no emails/storage)</span>
+            <span className="text-sm font-bold text-yellow-900">🔧 Enable Dev Mode (skips emails & DB)</span>
           </label>
         </div>
 

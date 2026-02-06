@@ -134,7 +134,7 @@ export default function AskPage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.3),transparent_50%)]"></div>
         <div className="max-w-md w-full bg-white/90 backdrop-blur-xl rounded-[2rem] shadow-[0_20px_60px_rgba(0,0,0,0.3)] p-8 text-center relative z-10 border-2 border-white/50">
           <img
-            src="https://media1.tenor.com/m/t1k5YfXQvCMAAAAd/peach-goma.gif"
+            src="https://media.giphy.com/media/L95W4wv8nnb9K/giphy.gif"
             alt="Sad"
             className="w-48 h-48 mx-auto mb-6 object-contain"
           />
@@ -173,7 +173,7 @@ export default function AskPage() {
           <p className="text-gray-600 text-lg font-medium mb-4">
             {answered === 'yes' 
               ? 'Time to plan that perfect date! 💕✨' 
-              : "You&apos;ve already responded to this request."}
+              : "You've already responded to this request."}
           </p>
           {answered === 'yes' && (
             <div className="mt-6 p-4 bg-gradient-to-r from-pink-50 to-purple-50 rounded-2xl border-2 border-pink-200">
@@ -213,7 +213,6 @@ export default function AskPage() {
               className="w-full h-full object-contain transition-all duration-700"
               key={noClickCount}
               loading="eager"
-              crossOrigin="anonymous"
               onError={(e) => {
                 console.error('GIF failed to load:', getGifUrl())
                 const target = e.target as HTMLImageElement
