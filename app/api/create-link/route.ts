@@ -35,10 +35,8 @@ export async function POST(request: NextRequest) {
       console.log('🔧 Link would be:', { id, linkData })
     }
 
-    // Derive base URL from the incoming request (Vercel, localhost, etc.)
-    const baseUrl =
-      process.env.NEXT_PUBLIC_BASE_URL || request.nextUrl.origin
-    const url = `${baseUrl}/ask/${id}`
+    // Derive base URL from the incoming request (works locally and on Vercel)
+    const url = `${request.nextUrl.origin}/ask/${id}`
 
     return NextResponse.json({ url, id, devMode: DEV_MODE })
   } catch (error) {
