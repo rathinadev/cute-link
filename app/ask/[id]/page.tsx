@@ -36,7 +36,7 @@ export default function AskPage() {
       'https://media.giphy.com/media/OPU6wzx8JrHna/giphy.gif',
     
       // Final — dramatic crying
-      'https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif',
+      'https://media.giphy.com/media/L95W4wv8nnb9K/giphy.gif',
     ]
     
     return gifs[Math.min(noClickCount, gifs.length - 1)] || gifs[0]
