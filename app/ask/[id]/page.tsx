@@ -179,7 +179,7 @@ export default function AskPage() {
           </h1>
           <p className="text-gray-600 text-lg font-medium mb-4">
             {answered === 'yes' 
-              ? 'Time to plan that perfect date! 💕✨' 
+              ? 'Time to plan something sweet together 💕✨' 
               : "You've already responded to this request."}
           </p>
           {answered === 'yes' && (
@@ -204,7 +204,7 @@ export default function AskPage() {
             💌
           </div>
           <h1 className="text-4xl font-black mb-4 bg-gradient-to-r from-pink-600 via-purple-600 to-rose-600 bg-clip-text text-transparent leading-tight">
-            Will you go out on a date with me?
+            Will you go on a little date with me?
           </h1>
           <p className="text-gray-600 text-lg font-semibold">
             {creatorName
@@ -282,9 +282,7 @@ export default function AskPage() {
           </button>
         </div>
 
-        {noClickCount > 0 && noClickCount < noButtonTexts.length - 1 && (
-          <p className="mt-6 text-pink-600 font-bold text-sm animate-pulse">Keep trying! 😉</p>
-        )}
+        {/* Soft hint without pressure – removed the old 'Keep trying' text */}
       </div>
     </main>
   )

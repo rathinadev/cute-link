@@ -62,10 +62,10 @@ export default function Home() {
             className="w-32 h-32 mx-auto mb-4 object-contain"
           />
           <h1 className="text-4xl font-black mb-3 bg-gradient-to-r from-pink-600 via-purple-600 to-rose-600 bg-clip-text text-transparent">
-            Will You Go Out With Me?
+            Ask Your Crush Out, The Cute Way 💕
           </h1>
           <p className="text-gray-600 text-lg font-semibold">
-            Create a magical link to ask that special someone 💕
+            Spin up a tiny magical link that does the asking for you ✨
           </p>
         </div>
 
@@ -130,7 +130,7 @@ export default function Home() {
             ) : (
               <>
                 <span className="text-xl">✨</span>
-                <span>Create My Link</span>
+                <span>Make My Cute Link</span>
               </>
             )}
           </button>
